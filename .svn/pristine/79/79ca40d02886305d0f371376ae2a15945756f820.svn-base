@@ -1,0 +1,8 @@
+package survey.service;
+
+import survey.model.Log;
+import survey.service.IService;
+
+public interface ILogService extends IService<Log> {
+	
+}

@@ -1,0 +1,8 @@
+package survey.service;
+
+import survey.model.Question;
+import survey.model.statistics.QuestionStatisticsModel;
+
+public interface IStatisticsService {
+	public QuestionStatisticsModel statistics(Question q);
+}

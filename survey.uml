@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_qb8akM37EdqwVrslYOdUDA" name="survey">
+  <packagedElement xmi:type="uml:Class" xmi:id="_aJL-4CneEeSsEpOj-9mkoQ" name="User"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_bAmIACneEeSsEpOj-9mkoQ" name="Survey"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_isGbKineEeSsEpOj-9mkoQ" name="A_&lt;survey>_&lt;user>" memberEnd="_isGbKyneEeSsEpOj-9mkoQ _isGbLineEeSsEpOj-9mkoQ" navigableOwnedEnd="_isGbLineEeSsEpOj-9mkoQ">
+    <ownedEnd xmi:id="_isGbKyneEeSsEpOj-9mkoQ" name="survey" type="_bAmIACneEeSsEpOj-9mkoQ" association="_isGbKineEeSsEpOj-9mkoQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_isGbLCneEeSsEpOj-9mkoQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_isGbLSneEeSsEpOj-9mkoQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_isGbLineEeSsEpOj-9mkoQ" name="user" type="_aJL-4CneEeSsEpOj-9mkoQ" association="_isGbKineEeSsEpOj-9mkoQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_isGbLyneEeSsEpOj-9mkoQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_isGbMCneEeSsEpOj-9mkoQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_yReNgCneEeSsEpOj-9mkoQ" name="A_&lt;survey>_&lt;user>" memberEnd="_yReNgSneEeSsEpOj-9mkoQ _yReNhCneEeSsEpOj-9mkoQ" navigableOwnedEnd="_yReNhCneEeSsEpOj-9mkoQ">
+    <ownedEnd xmi:id="_yReNgSneEeSsEpOj-9mkoQ" name="survey" visibility="public" type="_bAmIACneEeSsEpOj-9mkoQ" isUnique="false" association="_yReNgCneEeSsEpOj-9mkoQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_yReNgineEeSsEpOj-9mkoQ" value="*"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_yReNgyneEeSsEpOj-9mkoQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_yReNhCneEeSsEpOj-9mkoQ" name="user" type="_aJL-4CneEeSsEpOj-9mkoQ" association="_yReNgCneEeSsEpOj-9mkoQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_yReNhSneEeSsEpOj-9mkoQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_yReNhineEeSsEpOj-9mkoQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_WYamgCnfEeSsEpOj-9mkoQ" name="Page"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_aKkCeinfEeSsEpOj-9mkoQ" name="A_&lt;survey>_&lt;page>" memberEnd="_aKkCeynfEeSsEpOj-9mkoQ _aKkpgSnfEeSsEpOj-9mkoQ">
+    <ownedEnd xmi:id="_aKkCeynfEeSsEpOj-9mkoQ" name="survey" type="_bAmIACneEeSsEpOj-9mkoQ" association="_aKkCeinfEeSsEpOj-9mkoQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aKkCfCnfEeSsEpOj-9mkoQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aKkpgCnfEeSsEpOj-9mkoQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_aKkpgSnfEeSsEpOj-9mkoQ" name="page" type="_WYamgCnfEeSsEpOj-9mkoQ" association="_aKkCeinfEeSsEpOj-9mkoQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aKkpginfEeSsEpOj-9mkoQ" value="*"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aKkpgynfEeSsEpOj-9mkoQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_qEo5gCnfEeSsEpOj-9mkoQ" name="Question"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_sXDoGinfEeSsEpOj-9mkoQ" name="A_&lt;question>_&lt;page>" memberEnd="_sXDoGynfEeSsEpOj-9mkoQ _sXDoHinfEeSsEpOj-9mkoQ">
+    <ownedEnd xmi:id="_sXDoGynfEeSsEpOj-9mkoQ" name="question" type="_qEo5gCnfEeSsEpOj-9mkoQ" isUnique="false" association="_sXDoGinfEeSsEpOj-9mkoQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_sXDoHCnfEeSsEpOj-9mkoQ" value="*"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sXDoHSnfEeSsEpOj-9mkoQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_sXDoHinfEeSsEpOj-9mkoQ" name="page" type="_WYamgCnfEeSsEpOj-9mkoQ" association="_sXDoGinfEeSsEpOj-9mkoQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_sXDoHynfEeSsEpOj-9mkoQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sXDoICnfEeSsEpOj-9mkoQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_vtQiUCn0EeSsEpOj-9mkoQ" name="BaseDao&lt;T>">
+    <ownedOperation xmi:id="_5dOAgCn0EeSsEpOj-9mkoQ" name="saveEntity"/>
+    <ownedOperation xmi:id="_6UKPkCn0EeSsEpOj-9mkoQ" name="updateEntity"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_m5hmYCn1EeSsEpOj-9mkoQ" name="BaseDaoImpl&lt;T>" clientDependency="_vne1Ayn1EeSsEpOj-9mkoQ" isAbstract="true">
+    <interfaceRealization xmi:id="_vne1Ayn1EeSsEpOj-9mkoQ" name="InterfaceRealization1" supplier="_vtQiUCn0EeSsEpOj-9mkoQ" client="_m5hmYCn1EeSsEpOj-9mkoQ" contract="_vtQiUCn0EeSsEpOj-9mkoQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_AyvnICn2EeSsEpOj-9mkoQ" name="UserDaoImpl" clientDependency="_aVtEBCn2EeSsEpOj-9mkoQ">
+    <generalization xmi:id="_N2hmgCn2EeSsEpOj-9mkoQ" general="_m5hmYCn1EeSsEpOj-9mkoQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_aVtEBCn2EeSsEpOj-9mkoQ" name="Dependency1" supplier="_aJL-4CneEeSsEpOj-9mkoQ" client="_AyvnICn2EeSsEpOj-9mkoQ"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_gKtIgCn2EeSsEpOj-9mkoQ" name="QuestionDaoImpl" clientDependency="_lVuxACn4EeSsEpOj-9mkoQ">
+    <generalization xmi:id="_haylcyn4EeSsEpOj-9mkoQ" general="_m5hmYCn1EeSsEpOj-9mkoQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_gpxqICn2EeSsEpOj-9mkoQ" name="PageDaoImpl" clientDependency="_nT_NdCn4EeSsEpOj-9mkoQ">
+    <generalization xmi:id="_jCyeAyn4EeSsEpOj-9mkoQ" general="_m5hmYCn1EeSsEpOj-9mkoQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_h8AuECn2EeSsEpOj-9mkoQ" name="SurveyDaoImpl" clientDependency="_pM525Cn4EeSsEpOj-9mkoQ">
+    <generalization xmi:id="_jqc68yn4EeSsEpOj-9mkoQ" general="_m5hmYCn1EeSsEpOj-9mkoQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_lVuxACn4EeSsEpOj-9mkoQ" name="Dependency2" supplier="_qEo5gCnfEeSsEpOj-9mkoQ" client="_gKtIgCn2EeSsEpOj-9mkoQ"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_nT_NdCn4EeSsEpOj-9mkoQ" name="Dependency3" supplier="_WYamgCnfEeSsEpOj-9mkoQ" client="_gpxqICn2EeSsEpOj-9mkoQ"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_pM525Cn4EeSsEpOj-9mkoQ" name="Dependency4" supplier="_bAmIACneEeSsEpOj-9mkoQ" client="_h8AuECn2EeSsEpOj-9mkoQ"/>
+</uml:Model>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="SurveyDoor"
+  id="myeclipse.1408631130484"
+  context-root="/SurveyDoor"
+  j2ee-spec="5.0"
+  archive="SurveyDoor.war">
+  <attributes>
+    <attribute name="webrootdir" value="/WebRoot" />
+  </attributes>
+</project-module>
+

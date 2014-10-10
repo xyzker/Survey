@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+ 	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+ 	<constant name="struts.ui.theme" value="simple"></constant>
+ 	<constant name="struts.action.extension" value=","/>
+ 	<constant name="struts.ognl.allowStaticMethodAccess" value="true"></constant>
+ 	<constant name="struts.multipart.maxSize" value="10000000"></constant><!-- 最大上传表单10M -->
+	
+	<package name="survey" extends="struts-default,json-default,jfreechart-default" namespace="/">
+		<interceptors>
+			<interceptor name="rightFilter" class="survey.interceptor.RightFilterInterceptor"></interceptor>
+			<interceptor-stack name="loginStack">
+ 				<interceptor-ref name="rightFilter"></interceptor-ref>
+ 				<interceptor-ref name="defaultStack"></interceptor-ref>
+ 			</interceptor-stack>
+ 			<interceptor-stack name="uploadStack">
+ 				<interceptor-ref name="fileUpload">
+ 					<param name="allowedExtensions">jpg,jpeg,png,bmp,gif</param>
+ 					<param name="maximumSize">1048576</param>	<!-- 最大logo为1M -->
+ 				</interceptor-ref>
+ 				<interceptor-ref name="defaultStack"></interceptor-ref>
+ 			</interceptor-stack>
+		</interceptors>
+		
+		<default-interceptor-ref name="loginStack"></default-interceptor-ref>
+		
+		<global-results>
+			<result name="login">/index.jsp</result>
+			<result name="error_no_right">/index.jsp</result>
+		</global-results>
+	
+		<action name="index">
+			<result>/index.jsp</result>
+		</action>
+		
+		<!-- QuestionAction -->
+		<action name="*Question" class="survey.action.QuestionAction" method="{1}Question">
+			<result name="input">/WEB-INF/content/question/selectQuestionType.jsp</result>
+			<!-- 根据题型动态返回设计问题页面 -->
+			<result name="0">/WEB-INF/content/question/nonMatrixWithOtherQuestionDesign.jsp</result>
+			<result name="1">/WEB-INF/content/question/nonMatrixWithOtherQuestionDesign.jsp</result>
+			<result name="2">/WEB-INF/content/question/nonMatrixWithOtherQuestionDesign.jsp</result>
+			<result name="3">/WEB-INF/content/question/nonMatrixWithOtherQuestionDesign.jsp</result>
+
+			<result name="4">/WEB-INF/content/question/nonMatrixSelectQuestionDesign.jsp</result>
+			<result name="5">/WEB-INF/content/question/nonMatrixTextQuestionDesign.jsp</result>
+
+			<result name="6">/WEB-INF/content/question/matrixNormalQuestionDesign.jsp</result>
+			<result name="7">/WEB-INF/content/question/matrixNormalQuestionDesign.jsp</result>
+			<result name="8">/WEB-INF/content/question/matrixSelectQuestionDesign.jsp</result>			
+		</action>
+		
+		<action name="matrixStatistics" class="survey.action.ChartOutputAction" method="matrixStatistics">
+			<result name="6">/WEB-INF/content/statistics/matrixNormalStatistics.jsp</result>
+			<result name="7">/WEB-INF/content/statistics/matrixNormalStatistics.jsp</result>
+			<result name="8">/WEB-INF/content/statistics/matrixSelectStatistics.jsp</result>
+		</action>
+	</package>
+</struts>

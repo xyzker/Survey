@@ -1,0 +1,84 @@
+package survey.model;
+
+import java.util.Date;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
+public class Answer extends BaseEntity{
+	@Id
+	@GeneratedValue
+	private int id;
+	private String answersId;	//选项的索引，用逗号隔开
+	private String otherAnswer;
+	private String uuid;	//	批次
+	private Date answerTime;
+	
+	@ManyToOne(cascade={CascadeType.MERGE,CascadeType.REFRESH})
+	@JoinColumn(name="question_id", nullable=false)
+	private Question question;
+	
+	private int surveyId;   //关联字段（冗余）
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getAnswersId() {
+		return answersId;
+	}
+
+	public void setAnswersId(String answersId) {
+		this.answersId = answersId;
+	}
+
+	public String getOtherAnswer() {
+		return otherAnswer;
+	}
+
+	public void setOtherAnswer(String otherAnswer) {
+		this.otherAnswer = otherAnswer;
+	}
+
+	public String getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
+
+	public Date getAnswerTime() {
+		return answerTime;
+	}
+
+	public void setAnswerTime(Date answerTime) {
+		this.answerTime = answerTime;
+	}
+
+	public Question getQuestion() {
+		return question;
+	}
+
+	public void setQuestion(Question question) {
+		this.question = question;
+	}
+
+	public void setSurveyId(int surveyId) {
+		this.surveyId = surveyId;
+	}
+
+	public int getSurveyId() {
+		return surveyId;
+	}
+	
+}

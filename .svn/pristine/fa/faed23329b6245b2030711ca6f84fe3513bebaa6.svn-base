@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="survey" location="10,10" size="225,360">
+    <action name="index" location="65,57" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="index.jsp" />
+      </result>
+    </action>
+    <action name="*Question" location="10,120" size="150,230">
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="selectQuestionType.jsp" />
+      </result>
+      <result name="0">
+        <resourceEdge source="0" routing="0" target="nonMatrixWithOtherQuestionDesign.jsp" />
+      </result>
+      <result name="1">
+        <resourceEdge source="1" routing="0" target="nonMatrixWithOtherQuestionDesign.jsp" />
+      </result>
+      <result name="2">
+        <resourceEdge source="2" routing="0" target="nonMatrixWithOtherQuestionDesign.jsp" />
+      </result>
+      <result name="3">
+        <resourceEdge source="3" routing="0" target="nonMatrixWithOtherQuestionDesign.jsp" />
+      </result>
+      <result name="4">
+        <resourceEdge source="4" routing="0" target="nonMatrixSelectQuestionDesign.jsp" />
+      </result>
+      <result name="5">
+        <resourceEdge source="5" routing="0" target="nonMatrixTextQuestionDesign.jsp" />
+      </result>
+      <result name="6">
+        <resourceEdge source="6" routing="0" target="matrixNormalQuestionDesign.jsp" />
+      </result>
+      <result name="7">
+        <resourceEdge source="7" routing="0" target="matrixNormalQuestionDesign.jsp" />
+      </result>
+      <result name="8">
+        <resourceEdge source="8" routing="0" target="matrixSelectQuestionDesign.jsp" />
+      </result>
+    </action>
+    <action name="matrixStatistics" location="0,0" size="0,0">
+      <result name="6">
+        <resourceEdge source="6" routing="0" target="matrixNormalStatistics.jsp" />
+      </result>
+      <result name="7">
+        <resourceEdge source="7" routing="0" target="matrixNormalStatistics.jsp" />
+      </result>
+      <result name="8">
+        <resourceEdge source="8" routing="0" target="matrixSelectStatistics.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="index.jsp" path="/index.jsp" location="100,205" size="150,55" />
+  <webResource name="selectQuestionType.jsp" path="/WEB-INF/content/question/selectQuestionType.jsp" location="350,50" size="150,55" />
+  <webResource name="nonMatrixWithOtherQuestionDesign.jsp" path="/WEB-INF/content/question/nonMatrixWithOtherQuestionDesign.jsp" location="350,200" size="150,55" />
+  <webResource name="nonMatrixSelectQuestionDesign.jsp" path="/WEB-INF/content/question/nonMatrixSelectQuestionDesign.jsp" location="50,350" size="150,55" />
+  <webResource name="nonMatrixTextQuestionDesign.jsp" path="/WEB-INF/content/question/nonMatrixTextQuestionDesign.jsp" location="500,350" size="150,55" />
+  <webResource name="matrixNormalQuestionDesign.jsp" path="/WEB-INF/content/question/matrixNormalQuestionDesign.jsp" location="50,500" size="150,55" />
+  <webResource name="matrixSelectQuestionDesign.jsp" path="/WEB-INF/content/question/matrixSelectQuestionDesign.jsp" location="500,500" size="150,55" />
+  <webResource name="matrixNormalStatistics.jsp" path="/WEB-INF/content/statistics/matrixNormalStatistics.jsp" location="0,0" size="0,0" />
+  <webResource name="matrixSelectStatistics.jsp" path="/WEB-INF/content/statistics/matrixSelectStatistics.jsp" location="0,0" size="0,0" />
+</Struts2Diagram>
+
