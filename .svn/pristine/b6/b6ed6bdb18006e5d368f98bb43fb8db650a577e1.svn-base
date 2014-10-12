@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:task="http://www.springframework.org/schema/task" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/context
+           				http://www.springframework.org/schema/context/spring-context.xsd
+           				http://www.springframework.org/schema/tx 
+						http://www.springframework.org/schema/tx/spring-tx.xsd
+						http://www.springframework.org/schema/aop 
+       					http://www.springframework.org/schema/aop/spring-aop.xsd
+       					http://www.springframework.org/schema/task  
+						http://www.springframework.org/schema/task/spring-task.xsd  ">
+	<context:annotation-config />
+	<context:component-scan base-package="survey.dao,survey.service.impl,
+				survey.listener,survey.advice,survey.scheduler"/>
+	<aop:aspectj-autoproxy />
+	<task:annotation-driven/> 
+	<!-- 分散配置 -->						
+	<context:property-placeholder location="classpath:jdbc.properties"/>
+	
+<!-- enable the configuration of transactional behavior based on annotations -->  
+  	<tx:annotation-driven transaction-manager="txManager"/>  
+  
+  <!-- a PlatformTransactionManager is still required -->  
+  <bean id="txManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">  
+    <!-- (this dependency is defined somewhere else) -->  
+    <property name="sessionFactory" ref="sessionFactory"/>  
+  </bean>
+	
+	<!-- 主数据源 -->					
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass"
+			value="${jdbc.driverClass}">
+		</property>
+		<property name="jdbcUrl" value="${jdbc.jdbcUrl}"></property>
+		<property name="user" value="${jdbc.user}"></property>
+		<property name="password" value="${jdbc.password}"></property>
+	</bean>
+	
+	<!-- 从数据源 -->
+	<bean id="dataSource_1" parent="dataSource">
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/survey_1"></property>
+	</bean>
+	
+	<bean id="dataSourceRouter" class="survey.dataSource.SurveyDataSourceRouter">
+		<property name="targetDataSources">
+			<map key-type="java.lang.String">
+				<entry key="odd" value-ref="dataSource"></entry>
+				<entry key="even" value-ref="dataSource_1"></entry>
+			</map>
+		</property>
+		<property name="defaultTargetDataSource" ref="dataSource"></property>
+	</bean>
+	
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSourceRouter" />
+		</property>
+		 <property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<!-- 开启二级缓存 -->
+				<prop key="hibernate.cache.use_second_level_cache">true</prop>
+				<!-- 设置二级缓存的实现类 -->
+				<prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
+			</props>
+		</property>
+		<property name="packagesToScan" value="survey.model" /> 
+	</bean>
+</beans>
