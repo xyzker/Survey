@@ -48,6 +48,10 @@ public class Logger {
 		log.setOperName(mname);
 		//操作参数
 		String params = StringUtil.arr2Str(pjp.getArgs());
+		//防止字符串过长
+		if(params.length() > 100){
+			params = params.substring(0, 100);
+		}
 		log.setOperParams(params);
 		//调用目标对象的方法
 		try {
